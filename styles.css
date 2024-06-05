@@ -6,9 +6,33 @@
   }
   
   body {
-    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-    color: #333;
+    background: url('./re.jpg') no-repeat center center fixed;
+    background-size: cover;
+    animation: bgChange 20s infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@keyframes bgChange {
+    0% {
+        background: url('./re.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    50% {
+        background: url('./reci.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    75% {
+      background: url('./recip.jpg') no-repeat center center fixed;
+      background-size: cover;
   }
+    100% {
+        background: url('./rec.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+}
   
   .container {
     background: #ffffff;
