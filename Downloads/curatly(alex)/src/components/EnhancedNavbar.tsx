@@ -231,51 +231,77 @@ export function EnhancedNavbar({ currentPage, onNavigate }: NavbarProps) {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   whileTap={{ scale: 0.95 }}
-                    <path
-                      d={svgPaths.p2cbf85f0}
-                      stroke="black"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d={svgPaths.p3f64a500}
-                      stroke="black"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                    />
+                >
+                  {link.name}
+                </motion.button>
+              ))}
+
+              <div className="flex items-center gap-4 mt-2 pt-4 border-t border-gray-200">
+                <motion.button
+                  className="relative size-[34px] bg-white rounded-full border border-gray-200"
+                  aria-label="Toggle theme"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <AnimatePresence mode="wait">
+                    {theme === "dark" ? (
+                      <motion.div
+                        key="sun-mobile"
+                        initial={{ rotate: -90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: 90, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute inset-0 flex items-center justify-center"
+                      >
+                        <Sun className="size-5 text-yellow-500" />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="moon-mobile"
+                        initial={{ rotate: -90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: 90, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute inset-0 flex items-center justify-center"
+                      >
+                        <Moon className="size-5 text-gray-700" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+
+                <motion.button
+                  className="relative size-[34px] bg-white rounded-full border border-gray-200"
+                  aria-label="Account"
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 34 34">
+                    <circle cx="17" cy="17" fill="white" r="17" />
                   </svg>
-          </div>
-              </motion.button>
-      <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 34 34">
-        <circle cx="17" cy="17" fill="white" r="17" />
-      </svg>
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[20px]">
-        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 15 16">
-          <path
-            d={svgPaths.p2cbf85f0}
-            stroke="black"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <path
-            d={svgPaths.p3f64a500}
-            stroke="black"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-        </svg>
-      </div>
-    </motion.button>
-              </div >
-            </div >
-          </motion.div >
-        )
-}
-      </AnimatePresence >
-    </motion.nav >
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[20px]">
+                    <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 15 16">
+                      <path
+                        d={svgPaths.p2cbf85f0}
+                        stroke="black"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d={svgPaths.p3f64a500}
+                        stroke="black"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  </div>
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }
