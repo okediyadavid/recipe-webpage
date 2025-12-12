@@ -8,7 +8,7 @@ import { EnhancedProductPage } from "./pages/EnhancedProductPage";
 import { EnhancedSolutionsPage } from "./pages/EnhancedSolutionsPage";
 import { EnhancedPricingPage } from "./pages/EnhancedPricingPage";
 import { EnhancedResourcesPage } from "./pages/EnhancedResourcesPage";
-import { Toaster } from "sonner@2.0.3";
+import { Toaster } from "sonner";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
